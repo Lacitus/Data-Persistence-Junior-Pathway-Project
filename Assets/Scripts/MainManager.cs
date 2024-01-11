@@ -59,6 +59,10 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+            if(Input.GetKeyDown(KeyCode.Escape)) 
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
@@ -72,5 +76,8 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        //Pass our score to the GameManager
+        GameManager.instance.SaveData(m_Points);
     }
 }
